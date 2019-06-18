@@ -1,0 +1,18 @@
+<h:panelGroup layout="block" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:of="http://omnifaces.org/functions" id="grdMainSearch" >
+		<h:panelGrid id="grdSchoolSearchContaner" columns="4"  layout="grid" >
+			<h:outputLabel value="School Id " styleClass="form-group">
+				<h:inputText id="txtIDSearchSchoolId" value="#{SchoolMB.selectedSchool.id}" />
+			</h:outputLabel>
+			<h:outputLabel value="School Name " styleClass="form-group">
+				<h:inputText id="txtNameSearchSchoolId" value="#{SchoolMB.selectedSchool.name}" />
+			</h:outputLabel>
+			<h:commandButton id="btnsearchSchoolDemoId" value="SEARCH"	 action="#{SchoolMB.search()}" process="@form" update="@form" />
+			<h:commandButton align="right" actionListener="#{SchoolMB.switchToAddMode()}"  update="@form" ajax="true"
+				value="Add New School" styleClass="btn btn-success btnSpace" >
+			</h:commandButton>
+		</h:panelGrid>
+</h:panelGroup>

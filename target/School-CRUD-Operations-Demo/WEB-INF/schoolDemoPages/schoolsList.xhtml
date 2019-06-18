@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" 
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:panelGrid columns="2" cellpadding="10" >
+	<c:if test="#{not empty SchoolMB.schools}">
+	<p:dataTable id="schoolTableId" binding="#{table}"
+		value="#{SchoolMB.schools}" var="school" rendered="true" 
+		styleClass="table table-striped table-bordered tableUpdated"
+			 paginator="true" rows="5"
+             paginatorTemplate="{CurrentPageReport} {FirstPageLink}
+             {PreviousPageLink} {PageLinks} {NextPageLink}
+             {LastPageLink} {RowsPerPageDropdown}"
+             rowsPerPageTemplate="5,10,15"
+		>
+		<p:column headerText="School ID" filterBy="#{school.id}" sortBy="#{school.id}" filterMatchMode="startsWith" style="text-align: center;">
+			<f:facet name="header">Id</f:facet>
+			<h:outputText value="#{school.id}" />
+		</p:column>
+		<p:column  headerText="School Name" filterBy="#{school.name}" sortBy="#{school.name}" filterMatchMode="startsWith" >
+			<f:facet name="header">School Name</f:facet>
+			<h:outputText value="#{school.name}" />
+		</p:column>
+		<p:column style="text-align: center;">
+			<f:facet name="header">Edit</f:facet>
+			<p:commandLink actionListener="#{SchoolMB.fillSchoolObjectToEdit(school)}" action="#{SchoolMB.switchToEditMode()}"
+				value="Edit" styleClass="btn btn-primary"  update="@form" ajax="true">
+			</p:commandLink>
+		</p:column>
+		<p:column style="text-align: center;">
+			<f:facet name="header">Delete</f:facet>
+			<p:commandLink value="Delete" update="@form" ajax="true" action="#{SchoolMB.deleteSchool(school)}">
+					<p:confirm header="Confirmation" message="Are you sure you Want To delete This Record ?"
+						icon="pi pi-exclamation-triangle" />
+			</p:commandLink>
+		</p:column>
+	</p:dataTable>
+	</c:if>
+	<p:outputLabel id="schoolListEmpty" rendered="#{empty SchoolMB.schools}" value="NO SCHOOL RECORDS FOUND !!" escape="true"/>	
+	<center>
+		<h:commandButton rendered="#{false}" actionListener="#{SchoolMB.switchToAddMode()}"  update="@form" ajax="true"
+			value="Add New School" styleClass="btn btn-success btnSpace" >
+		</h:commandButton>
+	</center>
+	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+		<p:commandButton value="Yes" type="button"
+			styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+		<p:commandButton value="No" type="button"
+			styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+	</p:confirmDialog>
+</h:panelGrid>
+</html>

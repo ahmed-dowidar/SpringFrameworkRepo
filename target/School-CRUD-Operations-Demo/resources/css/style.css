@@ -1,0 +1,77 @@
+.menu .accordion-heading {
+	position: relative;
+}
+
+.menu .accordion-heading .edit {
+	position: absolute;
+	top: 8px;
+	right: 30px;
+}
+
+.menu .area {
+	border-left: 4px solid #f38787;
+}
+
+.menu .equipamento {
+	border-left: 4px solid #65c465;
+}
+
+.menu .ponto {
+	border-left: 4px solid #98b3fa;
+}
+
+.menu .collapse.in {
+	overflow: visible;
+}
+
+input[type='submit'] {
+	margin-right: 10px;
+	background: #5a849e;
+	color: white;
+	border-radius: 0;
+	border-width: 0;
+	height: 35px;
+}
+
+input {
+	height: 30px;
+	padding: 0 5px;
+}
+
+#schoolFormId\:addNewSchoolId_content .text-success {
+	margin-left: 40px;
+}
+
+body {
+	background: #5a849e;
+}
+
+center h2 {
+	color: white;
+}
+
+.ui-panel {
+	padding: .2em;
+	background: #f7f7f7;
+}
+
+.ui-widget-header {
+	background: #679cbf;
+	font-weight: bold;
+	text-shadow: none;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: #f1f1f1 ;
+    font-weight: bold;
+    color: #4f4f4f;
+    text-shadow:none;
+}
+
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+    background: #fff;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #313131;
+}

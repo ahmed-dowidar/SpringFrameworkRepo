@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<h:outputStylesheet name="css/style.css" />
+	<title>JSF Spring JPA Crud Example</title>
+	<style type="text/css">
+.tableUpdated {
+	width: 90% !important;
+	margin: 17px 58px 0 !important;
+}
+
+.btnSpace {
+	margin: 17px;
+}
+</style>
+</h:head>
+<h:body>
+	<center>
+		<h2>
+			<h:outputText value="JSF Spring JPA Crud Example" />
+		</h2>
+	</center>
+	<h:form id="schoolFormId">
+		<p:messages id="messages" closable="true" />
+		<p:panel id="schoolsSearchId" header="Search For Schools"  rendered="#{SchoolMB.mainViewMode}" >
+			<ui:include src="/WEB-INF/schoolDemoPages/search.xhtml" />
+		</p:panel>
+		<p:panel id="schoolsListResultId" rendered="#{SchoolMB.mainViewMode}" 
+			header="Schools Results" footer="Simple CRUD Operations With JSF + SPRING + JPA , Craeted By Ahmed Dowidar " style="margin-bottom:20px">
+			<ui:include src="/WEB-INF/schoolDemoPages/schoolsList.xhtml" />
+		</p:panel>
+		<p:panel id="addNewSchoolId" rendered="#{SchoolMB.addMode}"
+			header="Add new School" footer="Simple CRUD Operations With JSF + SPRING + JPA  , Craeted By Ahmed Dowidar " style="margin-bottom:20px">
+			<ui:include src="/WEB-INF/schoolDemoPages/newSchool.xhtml" />
+		</p:panel>
+		<p:panel id="editSchoolId" rendered="#{SchoolMB.editMode}" 
+			header="Basic" footer="Simple CRUD Operations With JSF + SPRING + JPA  , Craeted By Ahmed Dowidar " style="margin-bottom:20px">
+			<ui:include src="/WEB-INF/schoolDemoPages/schoolEdit.xhtml" />
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

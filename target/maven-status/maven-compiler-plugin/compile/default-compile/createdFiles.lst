@@ -1,0 +1,6 @@
+com\demo\school\repository\impl\SchoolRepositoryImpl.class
+com\demo\school\repository\SchoolRepository.class
+com\demo\school\service\impl\SchoolServiceImpl.class
+com\demo\school\beans\SchoolMB.class
+com\demo\school\service\SchoolService.class
+com\demo\school\model\School.class

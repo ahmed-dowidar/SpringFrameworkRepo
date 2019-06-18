@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	<h:panelGrid columns="2" cellpadding="10">
+		<div class="form-group">
+			<h:outputLabel value="Id " for="idLabel" styleClass="control-label col-sm-2">
+				<h:inputText id="schoolId" value="#{SchoolMB.selectedUpdatedSchool.id}" readonly="true" />
+			</h:outputLabel>
+		</div>
+		<div class="form-group">
+			<h:outputLabel value="New Name " for="nameLabel" styleClass="control-label col-sm-2">
+				<h:inputText id="name" value="#{SchoolMB.name}"
+					styleClass="form-control" />
+			</h:outputLabel>
+		</div>
+		<h:panelGroup>
+		<div class="form-group">
+			<div class="col-sm-4">
+				<h:commandButton value="Update" action="#{SchoolMB.updateSchool(SchoolMB.name)}"
+					styleClass="btn btn-primary updateBtnStyle" process="@this">
+						<f:ajax execute="@form" render="@form"/>
+				</h:commandButton>
+				<h:commandButton actionListener="#{SchoolMB.switchToMainViewMode()}"  immediate="true" 
+						value="BACK" styleClass="btn btn-primary"  update="@form" ajax="true">
+				</h:commandButton>
+			</div>
+		</div>
+		</h:panelGroup>
+		<div class="text text-success text-edit">
+			<h:message for="schoolId" />
+		</div>
+	</h:panelGrid>
+</html>

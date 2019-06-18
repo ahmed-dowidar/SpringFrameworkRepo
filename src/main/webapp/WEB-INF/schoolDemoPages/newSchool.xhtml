@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	<h:panelGrid  cellpadding="10">
+		<div class="form-group">
+			<h:outputLabel value="Id " for="id" styleClass="control-label col-sm-4">
+				<h:outputText readonly="true"  value=" Auto Incremented By JPA " styleClass="text text-success" />
+			</h:outputLabel>
+		</div>
+		<div class="form-group">
+			<h:outputLabel value="Name " for="name" styleClass="control-label col-sm-4">
+				<h:inputText id="school-name" value="#{SchoolMB.name}"
+					styleClass="form-control" required="true"
+					requiredMessage="School Name Cannot Be Empty"  validatorMessage="School Name Must be Less than 100 character">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+			</h:outputLabel>
+			<h:message for="school-name" styleClass="text text-danger" />
+		</div>
+		<h:panelGroup>
+		<div class="form-group">
+			<div class="col-sm-4">
+				<div class="col-sm-2">
+					<h:commandButton value="Save" action="#{SchoolMB.saveSchool()}"
+						styleClass="btn btn-success btnWidth" process="@this">
+						<f:ajax execute="@form" render="@form"/>
+					</h:commandButton>
+					<h:commandButton actionListener="#{SchoolMB.switchToMainViewMode()}"  immediate="true" 
+						value="BACK" styleClass="btn btn-primary"  update="@form" ajax="true">
+					</h:commandButton>
+				</div>
+			</div>
+		</div>
+		</h:panelGroup>
+	</h:panelGrid>
+</html>

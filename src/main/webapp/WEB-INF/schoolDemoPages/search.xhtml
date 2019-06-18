@@ -1,0 +1,30 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:panelGroup layout="block" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:of="http://omnifaces.org/functions" id="grdMainSearch" >
+		<h:panelGrid id="grdSchoolSearchContaner" columns="4"  layout="grid" >
+			<h:outputLabel value="School Id " styleClass="form-group">
+				<p:inputText id="txtIDSearchSchoolId" value="#{SchoolMB.searchSchoolId}" converterMessage="Please enter digits only." 
+				onkeydown="return event.keyCode &gt;= 48 &amp;&amp; event.keyCode &lt;= 57 || event.keyCode &gt;= 96 &amp;&amp; event.keyCode &lt;= 105 || event.keyCode == 8"
+				validatorMessage="School Id Must be Less than 9 digits " maxlength="9" >
+				</p:inputText>
+			</h:outputLabel>
+			<h:outputLabel value="School Name " styleClass="form-group">
+				<h:inputText id="txtNameSearchSchoolId" value="#{SchoolMB.searchSchoolName}" />
+			</h:outputLabel>
+			<h:commandButton id="btnsearchSchoolDemoId" value="SEARCH"	 action="#{SchoolMB.search()}" process="@form" update="@form" />
+			<h:commandButton id="btnClearSearchSchoolValuesId" value="CLEAR"	 action="#{SchoolMB.clearSeachValues()}" process="@form" update="@form" />
+			<h:panelGrid id="grdSchoolSearchAddContaner" columns="4"  layout="grid" >
+				<h:commandButton align="right" actionListener="#{SchoolMB.switchToAddMode()}"  update="@form" ajax="true"
+					value="Add New School" styleClass="btn btn-success btnSpace" >
+				</h:commandButton>
+			</h:panelGrid>
+		</h:panelGrid>
+</h:panelGroup>
+</html>
